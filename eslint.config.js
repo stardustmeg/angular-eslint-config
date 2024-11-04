@@ -11,12 +11,6 @@ const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  overrides: [
-    {
-      extends: ['plugin:@typescript-eslint/disable-type-checked'],
-      files: ['**/*.{js,cjs,mjs}'],
-    },
-  ],
   resolvePluginsRelativeTo: __dirname,
 });
 
@@ -70,7 +64,7 @@ const customRules = {
 };
 
 export default [
-  { ignores: ['**/*.js', '**/*.cjs'] },
+  { ignores: ['eslint.config.js', '.validate-branch-name.cjs'] },
   ...compat.extends('airbnb-base'),
   ...tsEslint.configs.strictTypeChecked,
   ...tsEslint.configs.stylisticTypeChecked,
